@@ -30,7 +30,7 @@ class App extends Component {
   }
   async handleChange() {
     this.setState({selectedRep: null})
-    if (!this.state.state || !this.state.type) return
+    if (!this.state.state || !this.state.type) return this.setState({reps: []})
     const {data: {results: reps}} = await axios.get(`${baseUrl}/${this.state.type}/${this.state.state}`)
     this.setState({reps})
   }
