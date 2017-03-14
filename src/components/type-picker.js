@@ -20,10 +20,14 @@ export default function TypePicker ({type, onTypeChange}) {
         floatingLabelText="Select Representative Type"
         value={type}
         onChange={(event, index, value) => onTypeChange(value)}>
-        {types.map(item => <MenuItem value={item} key={item} primaryText={item}/>)}
+        {types.map(renderType)}
       </SelectField>    
     </MuiThemeProvider>
   )
+}
+
+function renderType (item) {
+   return <MenuItem value={item} key={item} primaryText={item}/>
 }
 
 

@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 export default function RepInfo({rep}) {
-  if (!rep) return null
+  if (!rep) return <div />
   const { name, district, link, office, party, phone, state } = rep
   return (
     <MuiThemeProvider>

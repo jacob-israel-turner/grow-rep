@@ -7,11 +7,20 @@ export default function RepList ({reps, selectRep}) {
   return (
     <MuiThemeProvider>
       <List>
-        {reps.map(({name, party, link}, index) => <ListItem onClick={selectRep.bind(null, index)} key={link} primaryText={`${party[0]} - ${name}`}/>)}
+        {reps.map(renderRep)}
       </List>
     </MuiThemeProvider>
   )
+
+  function renderRep ({name, party, link}, index) {
+    return <ListItem
+              onClick={selectRep.bind(null, index)}
+              key={link}
+              primaryText={`${party[0]} - ${name}`}
+            />
+  }
 }
+
 
 RepList.propTypes = {
   selectRep: PropTypes.func.isRequired,

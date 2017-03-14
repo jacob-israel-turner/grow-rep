@@ -20,10 +20,18 @@ export default function StatePicker ({onStateChange, state}) {
         floatingLabelText="Select Your State"
         value={state}
         onChange={(event, index, value) => onStateChange(value)}>
-        {states.map(item => <MenuItem value={item.abbreviation} key={item.abbreviation} primaryText={`${item.abbreviation}${item.abbreviation ? ' - ' : ''}${item.name}`}/>)}
+        {states.map(renderState)}
       </SelectField>    
     </MuiThemeProvider>
   )
+}
+
+function renderState(item) {
+  return <MenuItem
+            value={item.abbreviation}
+            key={item.abbreviation}
+            primaryText={`${item.abbreviation}${item.abbreviation ? ' - ' : ''}${item.name}`}
+          />
 }
 
 StatePicker.propTypes = {
