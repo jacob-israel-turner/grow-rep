@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {StyleSheet, css} from 'aphrodite'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import autobind from 'autobind-decorator'
 
 import StatePicker from './components/state-picker'
 import TypePicker from './components/type-picker'
@@ -26,21 +27,18 @@ const styles = StyleSheet.create({
 })
 
 class App extends Component {
-  constructor() {
-    super()
-    this.handleStateChange = this.handleStateChange.bind(this)
-    this.handleTypeChange = this.handleTypeChange.bind(this)
-  }
   state = {
     state: '',
     type: '',
     reps: [],
     selectedRep: null
   }
+  @autobind
   handleStateChange(state) {
     if (state === this.state.state) return;
     this.setState({ selectedRep: null, reps: [], state }, this.fetchReps)
   }
+  @autobind
   handleTypeChange(type) {
     if (type === this.state.type) return;
     this.setState({ selectedRep: null, reps: [], type }, this.fetchReps)
