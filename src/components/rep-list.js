@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {List, ListItem} from 'material-ui/List'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -13,6 +13,7 @@ export default function RepList ({reps, selectRep}) {
   )
 }
 
-// <div>
-// </div>
-
+RepList.propTypes = {
+  selectRep: PropTypes.func.isRequired,
+  reps: PropTypes.array
+}

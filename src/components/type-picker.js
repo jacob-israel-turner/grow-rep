@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {StyleSheet, css} from 'aphrodite'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
@@ -24,4 +24,10 @@ export default function TypePicker ({type, onTypeChange}) {
       </SelectField>    
     </MuiThemeProvider>
   )
+}
+
+
+TypePicker.propTypes = {
+  onTypeChange: PropTypes.func.isRequired,
+  type: PropTypes.string
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -26,4 +26,16 @@ export default function RepInfo({rep}) {
       </Card>
     </MuiThemeProvider>
   )
+}
+
+RepInfo.propTypes = {
+  rep: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    district: PropTypes.string,
+    link: PropTypes.string.isRequired,
+    office: PropTypes.string.isRequired,
+    party: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+  })
 }
